@@ -36,23 +36,25 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 class htcondor (
-$htcondor              = $htcondor::params::htcondor,
-$condor_username       = $htcondor::params::condor_username,
-$condor_uid            = $htcondor::params::condor_uid,
-$condor_gid            = $htcondor::params::condor_gid,
-$condor_groups         = $htcondor::params::condor_groups,
-$condor_shell          = $htcondor::params::condor_shell,
-$condor_home           = $htcondor::params::condor_home,
-$htcondor_groupname    = $htcondor::params::htcondor_groupname,
-$htcondor_gid          = $htcondor::params::htcondor_gid,
-$reponame              = $htcondor::params::reponame,
-$config_path           = $htcondor::params::config_path,
-$htcondor_service      = $htcondor::params::htcondor_service,
-$use_central_repo      = $htcondor::params::use_central_repo,
-$schedd_host           = $htcondor::params::schedd_host,
-$mydomain              = $htcondor::params::mydomain,
-$cluster_name          = $htcondor::params::cluster_name,
-$daemon_list           = $htcondor::params::daemon_list,
+$htcondor                = $htcondor::params::htcondor,
+$condor_username         = $htcondor::params::condor_username,
+$condor_uid              = $htcondor::params::condor_uid,
+$condor_gid              = $htcondor::params::condor_gid,
+$condor_groups           = $htcondor::params::condor_groups,
+$condor_shell            = $htcondor::params::condor_shell,
+$condor_home             = $htcondor::params::condor_home,
+$htcondor_groupname      = $htcondor::params::htcondor_groupname,
+$htcondor_gid            = $htcondor::params::htcondor_gid,
+$reponame                = $htcondor::params::reponame,
+$config_path             = $htcondor::params::config_path,
+$htcondor_service        = $htcondor::params::htcondor_service,
+$use_central_repo        = $htcondor::params::use_central_repo,
+$schedd_host             = $htcondor::params::schedd_host,
+$mydomain                = $htcondor::params::mydomain,
+$cluster_name            = $htcondor::params::cluster_name,
+$daemon_list             = $htcondor::params::daemon_list,
+$htcondor_config_d       = $htcondor::params::htcondor_config_d,
+$condor_config_d_path    = $htcondor::params::condor_config_d_path,
 
 ) inherits htcondor::params {
 
@@ -62,6 +64,7 @@ if $use_central_repo == 'true' {
       class {'::htcondor::user': } ->
       class {'::htcondor::install': } ->
       class {'::htcondor::htcondor_config':} ->
+      class {'::htcondor::config_dir':} ->
       class {'::htcondor::service':} ->
     anchor {'htcondor::end': }
 }
@@ -72,6 +75,7 @@ else {
       class {'::htcondor::htcondor_repo': } ->
       class {'::htcondor::install': } ->
       class {'::htcondor::htcondor_config':} ->
+      class {'::htcondor::config_dir':} ->
       class {'::htcondor::service':} ->
     anchor {'htcondor::end': }
   }

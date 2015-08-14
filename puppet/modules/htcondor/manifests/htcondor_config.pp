@@ -4,8 +4,8 @@ file { 'Creating HTCondor config file':
     ensure  => present,
     path    => $config_path,
     mode    => '0644',
-    owner   => 'condor',
-    group   => 'condor',
+    owner   => 'root',
+    group   => 'root',
     backup  => true,
     content => template('htcondor/htcondor.erb'),
   }
