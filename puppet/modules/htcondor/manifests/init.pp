@@ -48,7 +48,7 @@ $htcondor_gid            = $htcondor::params::htcondor_gid,
 $reponame                = $htcondor::params::reponame,
 $config_path             = $htcondor::params::config_path,
 $htcondor_service        = $htcondor::params::htcondor_service,
-$use_central_repo        = $htcondor::params::use_central_repo,
+$use_condor_repo         = $htcondor::params::use_condor_repo,
 $schedd_host             = $htcondor::params::schedd_host,
 $mydomain                = $htcondor::params::mydomain,
 $cluster_name            = $htcondor::params::cluster_name,
@@ -58,7 +58,7 @@ $condor_config_d_path    = $htcondor::params::condor_config_d_path,
 
 ) inherits htcondor::params {
 
-if $use_central_repo == 'true' {
+if $use_condor_repo == 'false' {
     anchor {'htcondor::begin': } ->
       class {'::htcondor::group': } ->
       class {'::htcondor::user': } ->
