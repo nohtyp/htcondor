@@ -8,11 +8,13 @@
 #############################
 ## This is for resolv.conf ##
 #############################
-resolv_conf::nameservers:
+#resolv_conf::nameservers:
         #- '192.168.2.103'
-        - '10.40.57.39'
-        - '8.8.8.8'
+#        - '10.40.57.39'
+#        - '8.8.8.8'
 
-resolv_conf::searchpath:
-        #- 'familyguy.local'
-        - 'hq.nesdis.noaa.doc'
+#resolv_conf::searchpath:
+#       #- 'familyguy.local'
+#t        - 'hq.nesdis.noaa.doc'
+#
+htcondor::daemon_list: 'MASTER STARTD'

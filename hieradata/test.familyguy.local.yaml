@@ -8,16 +8,21 @@
 #############################
 ## This is for resolv.conf ##
 #############################
-resolv_conf::nameservers:
-        - '192.168.2.102'
+#resolv_conf::nameservers:
+#        - '192.168.2.102'
         #- '10.40.57.39'
-        - '8.8.8.8'
+#        - '8.8.8.8'
 
-resolv_conf::searchpath:
-        - 'familyguy.local'
+#resolv_conf::searchpath:
+#        - 'familyguy.local'
         #- 'hq.nesdis.noaa.doc'
 
 ##############################################
 ## This is testing user password with heira ##
 ##############################################
 #samba::join_user_pw: 'Thomas'
+#
+#
+
+#This system will be the master HTCONDOR node.  This system will pick up the configurations from the default configs.  If you want to change what daemons are started on the system just change the following (uncomment, then modify):
+#htcondor::daemon_list: 'add daemons..ex (MASTER, etc)'
