@@ -7,4 +7,4 @@
   - common
 
 :yaml:
-  :datadir: '/home/thomas.foster/github/puppetcac/hieradata'
+  :datadir: '/home/thomas.foster/github/htcondor/hieradata'
